@@ -3,95 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Teste</title>
+    <title>CPM2 Beta Login</title>
+    <!-- Importando uma fonte moderna do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            height: 100vh;
+            position: relative;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            font-family: 'Open Sans', sans-serif;
+            overflow: hidden;
+            background-color: #f0f0f0; /* Cor base caso a imagem demore a carregar */
         }
 
-        .login-card {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        /* Camada da imagem de fundo com 30% de transparência (opacity: 0.3) */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('image_e21b6f.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .container {
             width: 100%;
-            max-width: 360px;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
         }
 
-        .login-card h2 {
-            text-align: center;
-            color: #333333;
-            margin-bottom: 24px;
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Leve sombra para destacar do fundo */
+        }
+
+        .text-white { color: #FFFFFF; }
+        .text-yellow { color: #FFC107; } /* Amarelo/Laranja do seu design */
+
+        .icon-logo {
+            width: 180px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 40px;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
 
         .input-group label {
-            display: block;
-            margin-bottom: 6px;
-            color: #666666;
-            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #000000;
         }
 
         .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #dddddd;
-            border-radius: 6px;
-            font-size: 14px;
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 1.2rem;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.8);
             outline: none;
-            transition: border-color 0.2s;
+            transition: 0.3s;
         }
 
         .input-group input:focus {
-            border-color: #667eea;
+            background: #ffffff;
+            border-color: #FFC107;
         }
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #667eea;
-            border: none;
-            border-radius: 6px;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s;
+        /* Botão invisível mas clicável para submeter o formulário usando o Enter */
+        button[type="submit"] {
+            display: none; 
         }
 
-        button:hover {
-            background-color: #5a67d8;
+        .footer-text {
+            font-size: 1.1rem;
+            color: #222222;
+            font-weight: 600;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="login-card">
-        <h2>Bem-vindo</h2>
+
+    <div class="container">
+        <!-- Título Superior -->
+        <h1><span class="text-white">CPM</span><span class="text-yellow">2 beta Android/Ios</span></h1>
+        
+        <!-- Ícone Central -->
+        <img src="image_e21af0.png" alt="CPM2 Icon" class="icon-logo">
+
+        <!-- Formulário -->
         <form action="/login" method="POST">
             <div class="input-group">
-                <label for="usuario">Usuário</label>
-                <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required>
+                <label for="usuario">login:</label>
+                <input type="text" id="usuario" name="usuario" required>
             </div>
             <div class="input-group">
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                <label for="senha">senha:</label>
+                <input type="password" id="senha" name="senha" required>
             </div>
             <button type="submit">Entrar</button>
         </form>
+
+        <!-- Texto Inferior -->
+        <p class="footer-text">Enter your Car Parking 2 account details to proceed with the installation.</p>
     </div>
+
 </body>
 </html>
