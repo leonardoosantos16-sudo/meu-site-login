@@ -21,13 +21,15 @@
             align-items: center;
             justify-content: center;
             font-family: 'Open Sans', sans-serif;
-            overflow: hidden;
             background-color: #f0f0f0; 
+            padding: 20px 15px;
+            /* Permite rolagem suave em celulares menores */
+            overflow-y: auto;
         }
 
         body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background-image: url('https://cdn-icon.bluestacks.com/DZiFcf3kh0c40RFSk-lCgkKBeefAtvd_rnu1jVMWznRMGkp7kTgOimH-79YkmXcdYg0=s0');
             background-size: cover;
@@ -38,31 +40,32 @@
 
         .container {
             width: 100%;
-            max-width: 800px;
+            max-width: 450px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 20px;
         }
 
+        /* Fonte adaptada para não cortar no celular */
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
         }
 
         .text-white { color: #FFFFFF; }
         .text-yellow { color: #FFC107; } 
 
         .icon-logo {
-            width: 180px;
+            width: 140px;
             height: auto;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
         form {
@@ -70,37 +73,39 @@
             flex-direction: column;
             gap: 15px;
             width: 100%;
-            max-width: 450px;
-            margin-bottom: 40px;
+            max-width: 350px;
+            margin-bottom: 25px;
         }
 
         .input-group {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             width: 100%;
         }
 
-        /* Largura fixa adicionada aqui para forçar o alinhamento das caixas */
+        /* Alinhamento ajustado proporcionalmente */
         .input-group label {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #000000;
-            width: 160px; 
+            width: 110px; 
             text-align: right; 
+            flex-shrink: 0;
         }
 
         .input-group input {
             flex: 1;
-            padding: 10px 15px;
-            font-size: 1.2rem;
+            padding: 10px 12px;
+            font-size: 1rem;
             border: 2px solid rgba(0, 0, 0, 0.2);
             border-radius: 8px;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             outline: none;
             transition: 0.3s;
+            min-width: 0;
         }
 
         .input-group input:focus {
@@ -109,10 +114,10 @@
         }
 
         button[type="submit"] {
-            margin-top: 15px;
+            margin-top: 10px;
             padding: 12px 20px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: #000000;
             background-color: #FFC107;
@@ -121,6 +126,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
             text-transform: uppercase;
+            width: 100%;
         }
 
         button[type="submit"]:hover {
@@ -128,10 +134,19 @@
         }
 
         .footer-text {
-            font-size: 1.1rem;
-            color: #222222;
+            font-size: 0.95rem;
+            color: #111111;
             font-weight: 600;
-            margin-top: 20px;
+            line-height: 1.4;
+            max-width: 360px;
+            padding: 0 10px;
+        }
+
+        /* Ajustes finos para celulares com telas muito pequenas */
+        @media (max-width: 380px) {
+            h1 { font-size: 1.8rem; }
+            .icon-logo { width: 120px; }
+            .input-group label { width: 95px; font-size: 1.0rem; }
         }
     </style>
 </head>
